@@ -1,0 +1,22 @@
+{
+  "name": "ask-generate",
+  "version": "1.0.0",
+  "description": "Quickly scaffold Alexa skill artifacts",
+  "bin": {
+    "ask-generate": "ask-generate.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ask-cli": "^2.27.0",
+    "hygen": "^6.2.7"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@src": "./node_modules/ask-cli/lib",
+    "@test": "./test"
+  }
+}
