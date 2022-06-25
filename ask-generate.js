@@ -7,12 +7,15 @@ const Logger = require('hygen/dist/logger').default
 const path = require('path')
 const defaultTemplates = path.join(__dirname, '_templates')
 
-const program = require('commander');
+const { Command } = require('commander');
+const program = new Command();
 
-program
-    .command('intent [name]')
-    .action(function (name, cmdObj) {
-        runner(['intent', 'new', name], {
+program.command('intent')
+    .description('Generate a new Intent and handler')
+    .argument('<name>', 'Name of intent, will be generated as {Name}Intent')
+    .argument('[samples...]')
+    .action(function (name, samples, cmdObj) {
+        runner(['intent', 'new', name, '--samples', samples], {
             templates: defaultTemplates,
             cwd: process.cwd(),
             logger: new Logger(console.log.bind(console)),
